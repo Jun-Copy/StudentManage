@@ -1,6 +1,7 @@
 package com.san.stum.utils;
 
-import com.wtj.oa.entity.SysResult;
+
+import com.san.stum.common.SysResult;
 
 public class ResultUtil {
 	/**
