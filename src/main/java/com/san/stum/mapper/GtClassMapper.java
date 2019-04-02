@@ -2,6 +2,8 @@ package com.san.stum.mapper;
 
 import com.san.stum.entity.GtClass;
 
+import java.util.List;
+
 public interface GtClassMapper {
     int deleteByPrimaryKey(Integer clId);
 
@@ -14,4 +16,6 @@ public interface GtClassMapper {
     int updateByPrimaryKeySelective(GtClass record);
 
     int updateByPrimaryKey(GtClass record);
+
+    List<GtClass> selectByCondition(GtClass gtClass);
 }

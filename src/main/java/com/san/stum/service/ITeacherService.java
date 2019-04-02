@@ -1,10 +1,10 @@
-package com.san.stum.mapper;
+package com.san.stum.service;
 
 import com.san.stum.entity.GtTeacher;
 
 import java.util.List;
 
-public interface GtTeacherMapper {
+public interface ITeacherService{
     int deleteByPrimaryKey(Integer teaId);
 
     int insert(GtTeacher record);

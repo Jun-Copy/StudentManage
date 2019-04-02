@@ -55,4 +55,10 @@
     set cl_name = #{clName,jdbcType=VARCHAR}
     where cl_id = #{clId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectByCondition" parameterType="gtClass" resultMap="BaseResultMap">
+      select
+    <include refid="Base_Column_List" />
+    form gt_class
+  </select>
 </mapper>

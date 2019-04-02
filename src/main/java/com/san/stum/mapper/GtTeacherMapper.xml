@@ -90,4 +90,8 @@
       cl_id = #{clId,jdbcType=INTEGER}
     where tea_id = #{teaId,jdbcType=INTEGER}
   </update>
+
+  <select id="queryTeacher" resultMap="BaseResultMap">
+    SELECT * FROM gt_teacher
+  </select>
 </mapper>
