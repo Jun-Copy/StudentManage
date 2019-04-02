@@ -6,7 +6,7 @@
 
   <display-name>Archetype Created Web Application</display-name>
   <welcome-file-list>
-    <welcome-file>application/login.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <!-- 配置Spring环境 -->
   <context-param>
