@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.san.stum.mapper.GtClassMapper">
+  <resultMap id="BaseResultMap" type="com.san.stum.entity.GtClass">
+    <id column="cl_id" jdbcType="INTEGER" property="clId" />
+    <result column="cl_name" jdbcType="VARCHAR" property="clName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cl_id, cl_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gt_class
+    where cl_id = #{clId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gt_class
+    where cl_id = #{clId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.san.stum.entity.GtClass">
+    insert into gt_class (cl_id, cl_name)
+    values (#{clId,jdbcType=INTEGER}, #{clName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.san.stum.entity.GtClass">
+    insert into gt_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clId != null">
+        cl_id,
+      </if>
+      <if test="clName != null">
+        cl_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clId != null">
+        #{clId,jdbcType=INTEGER},
+      </if>
+      <if test="clName != null">
+        #{clName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.san.stum.entity.GtClass">
+    update gt_class
+    <set>
+      <if test="clName != null">
+        cl_name = #{clName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cl_id = #{clId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.san.stum.entity.GtClass">
+    update gt_class
+    set cl_name = #{clName,jdbcType=VARCHAR}
+    where cl_id = #{clId,jdbcType=INTEGER}
+  </update>
+</mapper>

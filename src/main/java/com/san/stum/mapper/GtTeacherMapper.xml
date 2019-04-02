@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.san.stum.mapper.GtTeacherMapper">
+  <resultMap id="BaseResultMap" type="com.san.stum.entity.GtTeacher">
+    <id column="tea_id" jdbcType="INTEGER" property="teaId" />
+    <result column="tea_name" jdbcType="VARCHAR" property="teaName" />
+    <result column="tea_sex" jdbcType="VARCHAR" property="teaSex" />
+    <result column="tea_describe" jdbcType="VARCHAR" property="teaDescribe" />
+    <result column="cl_id" jdbcType="INTEGER" property="clId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tea_id, tea_name, tea_sex, tea_describe, cl_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gt_teacher
+    where tea_id = #{teaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gt_teacher
+    where tea_id = #{teaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.san.stum.entity.GtTeacher">
+    insert into gt_teacher (tea_id, tea_name, tea_sex, 
+      tea_describe, cl_id)
+    values (#{teaId,jdbcType=INTEGER}, #{teaName,jdbcType=VARCHAR}, #{teaSex,jdbcType=VARCHAR}, 
+      #{teaDescribe,jdbcType=VARCHAR}, #{clId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.san.stum.entity.GtTeacher">
+    insert into gt_teacher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="teaId != null">
+        tea_id,
+      </if>
+      <if test="teaName != null">
+        tea_name,
+      </if>
+      <if test="teaSex != null">
+        tea_sex,
+      </if>
+      <if test="teaDescribe != null">
+        tea_describe,
+      </if>
+      <if test="clId != null">
+        cl_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="teaId != null">
+        #{teaId,jdbcType=INTEGER},
+      </if>
+      <if test="teaName != null">
+        #{teaName,jdbcType=VARCHAR},
+      </if>
+      <if test="teaSex != null">
+        #{teaSex,jdbcType=VARCHAR},
+      </if>
+      <if test="teaDescribe != null">
+        #{teaDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="clId != null">
+        #{clId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.san.stum.entity.GtTeacher">
+    update gt_teacher
+    <set>
+      <if test="teaName != null">
+        tea_name = #{teaName,jdbcType=VARCHAR},
+      </if>
+      <if test="teaSex != null">
+        tea_sex = #{teaSex,jdbcType=VARCHAR},
+      </if>
+      <if test="teaDescribe != null">
+        tea_describe = #{teaDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="clId != null">
+        cl_id = #{clId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tea_id = #{teaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.san.stum.entity.GtTeacher">
+    update gt_teacher
+    set tea_name = #{teaName,jdbcType=VARCHAR},
+      tea_sex = #{teaSex,jdbcType=VARCHAR},
+      tea_describe = #{teaDescribe,jdbcType=VARCHAR},
+      cl_id = #{clId,jdbcType=INTEGER}
+    where tea_id = #{teaId,jdbcType=INTEGER}
+  </update>
+</mapper>
