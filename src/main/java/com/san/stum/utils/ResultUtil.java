@@ -1,13 +1,10 @@
 package com.san.stum.utils;
 
-
 import com.san.stum.common.SysResult;
 
 public class ResultUtil {
 	/**
 	 * 返回是否成功的结果类
-	 * @param result
-	 * @return
 	 */
 	public static SysResult getSysResult(int result) {
 		SysResult sysResult = new SysResult();
