@@ -90,4 +90,10 @@
       cl_id = #{clId,jdbcType=INTEGER}
     where stu_id = #{stuId,jdbcType=INTEGER}
   </update>
+  <!--查询所有的学生-->
+  <select id="queryPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from gt_student
+  </select>
 </mapper>
